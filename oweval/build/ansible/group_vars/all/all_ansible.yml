@@ -1,0 +1,91 @@
+---
+ansible_python_interpreter: /usr/bin/python3
+oweval_versions_dir: "oweval_versions"
+
+# -------------------------------------------------------------------------------------------------
+# Docker file paths for each version for base, mods, prod & work
+# -------------------------------------------------------------------------------------------------
+template_dockerfiles:
+    src: roles/template/files/php-fpm-full-install.j2
+    dest: "Dockerfiles/full-install/Dockerfile-{{ php_version }}"
+
+php_versions:
+  - 7.3
+  - 7.4
+
+oweval_versions:
+  - master
+  - develop
+
+php-fpm-fill-install-src:
+
+
+portainer_templates:
+  dest: ../../templates.json
+  src: roles/template/files/portainer-templates.j2
+  stacks:
+    - title: Devilbox-Teststack
+      categories: development
+      description: teststack based on devilbox images
+      repository_url: https://git.repo.vub.ac.be/oweval/docker.git
+      repository_stackfile: stacks/devilbox-test/devilbox-test.yml
+      settings_override:
+        ermoetietszijn:
+      settings_extra:
+        ermoetietszijn:
+          value:
+          type: "preset"
+    - title: Devilbox-Devstack
+      categories: development
+      description: teststack based on devilbox images
+      repository_url: https://git.repo.vub.ac.be/oweval/docker.git
+      repository_stackfile: stacks/dev/docker-compose.yml
+      settings_override:
+        host_path_httpd_default_datadir:
+          value: "/home/jevdheyd/code"
+          type: "input"
+          label: "data mount"
+        git_token:
+          value: ""
+          type: "preset"
+        host_port_httpd:
+          value: 8080
+          label: "http_port"
+          type: "input"
+        host_port_httpd_ssl:
+          value: 10443
+          label: "ssl_port"
+          type: "input"
+        devilbox_path:
+          value: "/home/jevdheyd/docker/oweval-docker"
+          type: "input"
+          label: "path"
+        debug_compose_entrypoint:
+          value: 0
+          type: "input"
+          label: "debug compose entrypoint"
+      settings_extra:
+        elk_server:
+          value: "7.10.2"
+          type: "input"
+          label: "elk_version"
+        host_port_elk_kibana:
+          value: "5601"
+          type: "preset"
+        host_port_elk_elastic:
+          value: "9200"
+          type: "preset"
+        host_port_elk_logstash:
+          value: "9600"
+          type: "preset"
+        filebeat_port_elk_logstash:
+          value: "5044"
+          label: "filebeat port for logstash"
+          type: "preset"
+
+
+env_files:
+  - src: roles/template/files/env.j2
+    dest: ../../stacks/devilbox-test/.env
+  # - src: roles/template/files/env.j2
+  #   dest: ../../stacks/dev/.env

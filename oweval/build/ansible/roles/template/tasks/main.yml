@@ -1,0 +1,19 @@
+---
+
+- name: Generate portainer templates
+  template:
+    src:  "{{ portainer_templates.src }}"
+    dest: "{{ portainer_templates.dest }}"
+    force: True
+    mode:  0644
+  with_items:
+    - "{{ portainer_templates }}"
+
+- name: Generate env files
+  template:
+    src:  "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    force: True
+    mode:  0644
+  with_items:
+    - "{{ env_files }}"

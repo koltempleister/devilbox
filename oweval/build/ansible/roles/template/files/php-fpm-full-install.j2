@@ -1,0 +1,5 @@
+FROM devilbox/php-fpm:{{php_version}}-prod-0.122
+
+RUN cp {{oweval_versions_dir}}/{{oweval-version}} {{http_docroot_dir}}/oweval \
+    && {{http_docroot_dir}}/oweval  \
+    && ansible-playbook -i ansible\inventories/portainer.yaml ansible\self-deploy-selenium.yml

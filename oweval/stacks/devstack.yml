@@ -1,0 +1,55 @@
+version: '2'
+
+volumes:
+  mariadb101-database:
+    driver: local
+
+services:
+
+  web-74:
+      depends_on:
+       - mariadb101-server
+      build: ../../images/php74
+      image: php74
+      ports:
+       - "8087:80"
+      volumes:
+       - ${DIRCODEBASE}:/var/www/html
+       - ${DIRAPACHELOGS}:/var/log/apache2
+       - ../php_ini:/usr/local/etc/php
+       - ${APACHEVIRTHOSTS}:/etc/apache2/sites-available
+      restart: always
+      links:
+       - mariadb101-server
+
+  web-73:
+      depends_on:
+       - mariadb101-server
+      build: ../../images/php73
+      image: php73
+      ports:
+       - "8086:80"
+      volumes:
+       - ${DIRCODEBASE}:/var/www/html
+       - ${DIRAPACHELOGS}:/var/log/apache2
+        - ../php_ini:/usr/local/etc/php
+       - /etc/apache2/sites-available:/etc/apache2/sites-available
+      restart: always
+      links:
+       - mariadb101-server
+
+  mariadb101-server:
+      image: mariadb:10.1
+      ports:
+        - "3306:3306"
+      volumes:
+       - ${DIRDATABASE}:/database
+       - ${DIRMARIADBLOGS}:/var/log/mysql
+       - "mariadb101-database:/var/lib/mysql"
+      restart: always
+      environment:
+       - MYSQL_ROOT_PASSWORD=${MYSQLPASS}
+  redis:
+    image: redis:4
+    ports:
+      - "6379:6379"

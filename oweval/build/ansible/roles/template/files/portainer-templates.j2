@@ -1,0 +1,61 @@
+{
+	"version": "2",
+	"templates": [
+{% for template in portainer_templates.stacks %}
+    {
+      "categories":["{{ template.categories }}"],
+      "type": 3,
+      "title": "{{ template.title }}",
+      "description": "{{ template.description }}",
+      "platform": "linux",
+      "repository": {
+          "url":"{{ template.repository_url }}",
+          "stackfile": "{{ template.repository_stackfile }}"
+      },
+      "env": [
+				{% for setting in default_settings %}
+{
+					{% if setting not in template.settings_override %}
+
+		    		"name": "{{ setting.upper() }}",
+		    		"default": "{{ default_settings[setting].value }}",
+			    	{% if default_settings[setting].type == "preset" -%}
+			    		"preset": "true"
+			    	{%- else -%}
+			      	"label": "{{ default_settings[setting].label }}"
+			    	{%- endif %}
+
+					 {% else %}
+
+						"name": "{{ setting.upper() }}",
+						"default": "{{ template.settings_override[setting].value }}",
+						{% if template.settings_override[setting].type == "preset" -%}
+							"preset": "true"
+						{%- else -%}
+							"label": "{{ template.settings_override[setting].label }}"
+						{%- endif %}
+
+					{% endif %}
+
+				}{% if not loop.last -%},{%- endif -%}
+				{%- endfor -%}
+				{%- for setting in template.settings_extra -%}
+				,{
+
+						"name": "{{ setting.upper() }}",
+						"default": "{{ template.settings_extra[setting].value }}",
+						{% if template.settings_extra[setting].type == "preset" -%}
+							"preset": "true"
+						{%- else -%}
+							"label": "{{ template.settings_extra[setting].label }}"
+						{%- endif %}
+
+			}
+				{%- endfor %}
+
+		]
+  }
+		{% if not loop.last -%},{%- endif %}
+{% endfor %}
+]
+}

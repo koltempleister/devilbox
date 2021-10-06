@@ -1,0 +1,33 @@
+version: '2'
+
+volumes:
+  mariadb101-database:
+    driver: local
+
+services:
+
+  web-73:
+      depends_on:
+       - mariadb101-server
+      build: ../images/php73-lite
+      image: php73
+      ports:
+       - "8084:80"
+      volumes:
+       - ${DIR_CODEBASE}:/var/www/html
+       - ${DIR_PHP_INI}:/usr/local/etc/php
+      restart: always
+      links:
+       - mariadb101-server
+
+  mariadb101-server:
+      image: mariadb:10.1
+      ports:
+        - "3311:3306"
+      volumes:
+       - ${DIRDATABASE}:/database
+       - mariadb101-database:/var/lib/mysql
+
+      restart: always
+      environment:
+       - MYSQL_ROOT_PASSWORD=${MYSQLPASS}

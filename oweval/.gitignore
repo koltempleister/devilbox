@@ -1,0 +1,4 @@
+# Ignore Certificate Authority
+/oweval/ca/*
+# Ignore logs
+/oweval/log/*

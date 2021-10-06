@@ -1,0 +1,5 @@
+config.reload.automatic: true
+config.reload.interval: 300
+http.host: 0.0.0.0
+http.port: 9600
+log.level: info

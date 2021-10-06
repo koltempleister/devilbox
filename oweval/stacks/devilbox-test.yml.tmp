@@ -1,0 +1,169 @@
+
+
+# ------------------------------------------------------------
+# Web Server
+# ------------------------------------------------------------
+httpd:
+  image: devilbox/${HTTPD_SERVER}:0.36
+  hostname: httpd
+
+  environment:
+
+    ##
+    ## Debug/Logging
+    ##
+    - DEBUG_ENTRYPOINT=${DEBUG_COMPOSE_ENTRYPOINT}
+    - DEBUG_RUNTIME=${DEBUG_COMPOSE_ENTRYPOINT}
+    - DOCKER_LOGS
+
+    ##
+    ## Adjust timezone
+    ##
+    - TIMEZONE
+
+    ##
+    ## UserID and GroupID
+    ##
+    - NEW_UID
+    - NEW_GID
+
+    ##
+    ## Nginx specific worker/connection settings
+    ##
+    - WORKER_PROCESSES=auto
+    - WORKER_CONNECTIONS=1024
+
+    ##
+    ## Disable default vhost?
+    ##
+    - MAIN_VHOST_ENABLE=1
+    - MAIN_VHOST_SSL_TYPE=${HTTPD_VHOST_SSL_TYPE:-both}
+    - MAIN_VHOST_SSL_GEN=1
+    - MAIN_VHOST_SSL_CN=${DEVILBOX_UI_SSL_CN:-localhost}
+    - MAIN_VHOST_DOCROOT=
+    - MAIN_VHOST_TPL=${HTTPD_TEMPLATE_DIR}
+    - MAIN_VHOST_STATUS_ENABLE=0
+    - MAIN_VHOST_STATUS_ALIAS=
+
+    ##
+    ## Enable Mass Vhosts
+    ##
+    - MASS_VHOST_ENABLE=0
+    - MASS_VHOST_TLD=.${TLD_SUFFIX}
+    - MASS_VHOST_DOCROOT=${HTTPD_DOCROOT_DIR}
+    - MASS_VHOST_TPL=${HTTPD_TEMPLATE_DIR}
+    - MASS_VHOST_SSL_TYPE=${HTTPD_VHOST_SSL_TYPE:-both}
+    - MASS_VHOST_SSL_GEN=1
+
+    ##
+    ## PHP-FPM Remote Server
+    ##
+    - COMPAT=${PHP_SERVER}
+    - PHP_FPM_ENABLE=1
+    - PHP_FPM_SERVER_ADDR=php
+    - PHP_FPM_SERVER_PORT=9000
+    - PHP_FPM_TIMEOUT=${HTTPD_TIMEOUT_TO_PHP_FPM:-180}
+
+  ports:
+    # ---- Format: ----
+    # [HOST-ADDR : ] HOST-PORT : DOCKER-PORT
+    - "${LOCAL_LISTEN_ADDR}${HOST_PORT_HTTPD}:80"
+    - "${LOCAL_LISTEN_ADDR}${HOST_PORT_HTTPD_SSL}:443"
+
+  # networks:
+  #   app_net:
+  #     ipv4_address: 172.16.238.11
+
+  volumes:
+    # ---- Format: ----
+    # HOST-DIRECTORY : DOCKER-DIRECTORY
+
+    #default vhost path
+    - ${HOST_PATH_HTTPD_DEFAULT_DATADIR}:/var/www/default:ro${MOUNT_OPTIONS}
+
+    # Mount custom mass virtual hosting
+    # - ${HOST_PATH_HTTPD_DATADIR}:/shared/httpd:rw${MOUNT_OPTIONS}
+
+    # Mount custom web server config directory
+    - ${DEVILBOX_PATH}/cfg/${HTTPD_SERVER}:/etc/httpd-custom.d:rw${MOUNT_OPTIONS}
+
+    # Mount custom vhost-templates
+    - ${DEVILBOX_PATH}/cfg/vhost-gen:/etc/vhost-gen.d:rw${MOUNT_OPTIONS}
+
+    # Mount logs
+    - ${DEVILBOX_PATH}/log/${HTTPD_SERVER}:/var/log/${HTTPD_SERVER}:rw${MOUNT_OPTIONS}
+
+    # Certificate Authority public key
+    - ${DEVILBOX_PATH}/ca:/ca:rw${MOUNT_OPTIONS}
+
+  depends_on:
+    - bind
+    - php
+
+  # ------------------------------------------------------------
+  # MySQL Database
+  # ------------------------------------------------------------
+  mysql:
+    image: devilbox/mysql:${MYSQL_SERVER}-0.7
+    hostname: mysql
+
+    environment:
+      - MYSQL_ROOT_PASSWORD
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
+    ports:
+      # [local-machine:]local-port:docker-port
+      - "${LOCAL_LISTEN_ADDR}${HOST_PORT_MYSQL}:3306"
+
+    networks:
+      app_net:
+        ipv4_address: 172.16.238.12
+
+    volumes:
+      # ---- Format: ----
+      # HOST-DIRECTORY : DOCKER-DIRECTORY
+
+      # Mount devilbox user-defined cnf files in order
+      # to overwrite the MySQL server configuration
+      - ${DEVILBOX_PATH}/cfg/${MYSQL_SERVER}:/etc/mysql/docker-default.d:ro${MOUNT_OPTIONS}
+
+      # Mount MySQL Data directory
+      - devilbox-${MYSQL_SERVER}:/var/lib/mysql:rw${MOUNT_OPTIONS}
+
+    depends_on:
+      - bind
+      - php
+      - httpd
+
+  # ------------------------------------------------------------
+  # Memcached
+  # ------------------------------------------------------------
+  memcd:
+    image: memcached:${MEMCD_SERVER}
+    hostname: memcd
+
+    ports:
+      # [local-machine:]local-port:docker-port
+      - "${LOCAL_LISTEN_ADDR}${HOST_PORT_MEMCD}:11211"
+
+    networks:
+      app_net:
+        ipv4_address: 172.16.238.15
+
+    depends_on:
+      - bind
+      - php
+      - httpd
+# ################################################################################
+# # NETWORK
+# ################################################################################
+# networks:
+#   app_net:
+#     driver: bridge
+#     driver_opts:
+#       com.docker.network.enable_ipv6: "false"
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: 172.16.238.0/24
+#           gateway: 172.16.238.1
