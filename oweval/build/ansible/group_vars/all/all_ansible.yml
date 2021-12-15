@@ -65,6 +65,10 @@ portainer_templates:
           type: "input"
           label: "debug compose entrypoint"
       settings_extra:
+        container_name:
+          value: devstack
+          type: "input"
+          label: "name"
         elk_server:
           value: "7.10.2"
           type: "input"
