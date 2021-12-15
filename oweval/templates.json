@@ -1,0 +1,387 @@
+{
+	"version": "2",
+	"templates": [
+    {
+      "categories":["development"],
+      "type": 3,
+      "title": "Devilbox-Teststack",
+      "description": "teststack based on devilbox images",
+      "platform": "linux",
+      "repository": {
+          "url":"https://git.repo.vub.ac.be/oweval/docker.git",
+          "stackfile": "stacks/devilbox-test/devilbox-test.yml"
+      },
+      "env": [
+				{
+					
+		    		"name": "DEVILBOX_PATH",
+		    		"default": "..",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HOST_PORT_BIND",
+		    		"default": "1053",
+			    	"label": "host port binding"
+					 
+				},{
+					
+		    		"name": "TLD_SUFFIX",
+		    		"default": "local",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "BIND_DNS_RESOLVER",
+		    		"default": "134.184.15.13,134.184.250.7",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HTTPD_VHOST_SSL_TYPE",
+		    		"default": "ssl",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HTTPD_TIMEOUT_TO_PHP_FPM",
+		    		"default": "180",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HTTPD_DOCROOT_DIR",
+		    		"default": "public",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HTTPD_TEMPLATE_DIR",
+		    		"default": "",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "LOCAL_LISTEN_ADDR",
+		    		"default": "",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HOST_PATH_HTTPD_DEFAULT_DATADIR",
+		    		"default": "./data/www",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HOST_PORT_HTTPD",
+		    		"default": "8080",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HOST_PORT_HTTPD_SSL",
+		    		"default": "10443",
+			    	"label": "ssl port"
+					 
+				},{
+					
+		    		"name": "PHP_FPM_SERVER_PORT",
+		    		"default": "9000",
+			    	"label": "php port"
+					 
+				},{
+					
+		    		"name": "DEBUG_COMPOSE_ENTRYPOINT",
+		    		"default": "0",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "PHP_SERVER",
+		    		"default": "7.3",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HTTPD_SERVER",
+		    		"default": "apache-2.4",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "PHP_MODULES_DISABLE",
+		    		"default": "",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "PHP_MAIL_CATCH_ALL",
+		    		"default": "",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "MYSQL_ROOT_PASSWORD",
+		    		"default": "root",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "MYSQL_SERVER",
+		    		"default": "mariadb-10.1",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HOST_PORT_MYSQL",
+		    		"default": "3306",
+			    	"label": "mysql port"
+					 
+				},{
+					
+		    		"name": "MOUNT_OPTIONS",
+		    		"default": "",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "MEMCD_SERVER",
+		    		"default": "1.4",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HOST_PORT_MEMCD",
+		    		"default": "11211",
+			    	"label": "memcached port"
+					 
+				},{
+					
+		    		"name": "SSH_KEY",
+		    		"default": "${cat ~/.ssh/id_rsa}",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "GIT_TOKEN",
+		    		"default": "",
+			    	"label": "git token"
+					 
+				},{
+					
+		    		"name": "REDIS_SERVER",
+		    		"default": "latest",
+			    	"preset": "true"
+					 
+				},{
+
+						"name": "ERMOETIETSZIJN",
+						"default": "",
+						"preset": "true"
+			}
+		]
+  }
+		,    {
+      "categories":["development"],
+      "type": 3,
+      "title": "Devilbox-Devstack",
+      "description": "teststack based on devilbox images",
+      "platform": "linux",
+      "repository": {
+          "url":"https://git.repo.vub.ac.be/oweval/docker.git",
+          "stackfile": "stacks/dev/docker-compose.yml"
+      },
+      "env": [
+				{
+					
+						"name": "DEVILBOX_PATH",
+						"default": "/home/jevdheyd/docker/oweval-docker",
+						"label": "path"
+					
+				},{
+					
+		    		"name": "HOST_PORT_BIND",
+		    		"default": "1053",
+			    	"label": "host port binding"
+					 
+				},{
+					
+		    		"name": "TLD_SUFFIX",
+		    		"default": "local",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "BIND_DNS_RESOLVER",
+		    		"default": "134.184.15.13,134.184.250.7",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HTTPD_VHOST_SSL_TYPE",
+		    		"default": "ssl",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HTTPD_TIMEOUT_TO_PHP_FPM",
+		    		"default": "180",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HTTPD_DOCROOT_DIR",
+		    		"default": "public",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HTTPD_TEMPLATE_DIR",
+		    		"default": "",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "LOCAL_LISTEN_ADDR",
+		    		"default": "",
+			    	"preset": "true"
+					 
+				},{
+					
+						"name": "HOST_PATH_HTTPD_DEFAULT_DATADIR",
+						"default": "/home/jevdheyd/code",
+						"label": "data mount"
+					
+				},{
+					
+						"name": "HOST_PORT_HTTPD",
+						"default": "8080",
+						"label": "http_port"
+					
+				},{
+					
+						"name": "HOST_PORT_HTTPD_SSL",
+						"default": "10443",
+						"label": "ssl_port"
+					
+				},{
+					
+		    		"name": "PHP_FPM_SERVER_PORT",
+		    		"default": "9000",
+			    	"label": "php port"
+					 
+				},{
+					
+						"name": "DEBUG_COMPOSE_ENTRYPOINT",
+						"default": "0",
+						"label": "debug compose entrypoint"
+					
+				},{
+					
+		    		"name": "PHP_SERVER",
+		    		"default": "7.3",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HTTPD_SERVER",
+		    		"default": "apache-2.4",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "PHP_MODULES_DISABLE",
+		    		"default": "",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "PHP_MAIL_CATCH_ALL",
+		    		"default": "",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "MYSQL_ROOT_PASSWORD",
+		    		"default": "root",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "MYSQL_SERVER",
+		    		"default": "mariadb-10.1",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HOST_PORT_MYSQL",
+		    		"default": "3306",
+			    	"label": "mysql port"
+					 
+				},{
+					
+		    		"name": "MOUNT_OPTIONS",
+		    		"default": "",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "MEMCD_SERVER",
+		    		"default": "1.4",
+			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HOST_PORT_MEMCD",
+		    		"default": "11211",
+			    	"label": "memcached port"
+					 
+				},{
+					
+		    		"name": "SSH_KEY",
+		    		"default": "${cat ~/.ssh/id_rsa}",
+			    	"preset": "true"
+					 
+				},{
+					
+						"name": "GIT_TOKEN",
+						"default": "",
+						"preset": "true"
+					
+				},{
+					
+		    		"name": "REDIS_SERVER",
+		    		"default": "latest",
+			    	"preset": "true"
+					 
+				},{
+
+						"name": "ELK_SERVER",
+						"default": "7.10.2",
+						"label": "elk_version"
+			},{
+
+						"name": "HOST_PORT_ELK_KIBANA",
+						"default": "5601",
+						"preset": "true"
+			},{
+
+						"name": "HOST_PORT_ELK_ELASTIC",
+						"default": "9200",
+						"preset": "true"
+			},{
+
+						"name": "HOST_PORT_ELK_LOGSTASH",
+						"default": "9600",
+						"preset": "true"
+			},{
+
+						"name": "FILEBEAT_PORT_ELK_LOGSTASH",
+						"default": "5044",
+						"preset": "true"
+			}
+		]
+  }
+		]
+}
