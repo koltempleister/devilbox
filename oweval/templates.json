@@ -357,11 +357,6 @@
 					 
 				},{
 
-						"name": "CONTAINER_NAME",
-						"default": "devstack",
-						"label": "name"
-			},{
-
 						"name": "ELK_SERVER",
 						"default": "7.10.2",
 						"label": "elk_version"
