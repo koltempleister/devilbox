@@ -8,7 +8,7 @@
       "description": "teststack based on devilbox images",
       "platform": "linux",
       "repository": {
-          "url":"https://git.repo.vub.ac.be/oweval/docker.git",
+          "url":"https://github.com/koltempleister/docker.git",
           "stackfile": "stacks/devilbox-test/devilbox-test.yml"
       },
       "env": [
@@ -189,7 +189,7 @@
       "description": "teststack based on devilbox images",
       "platform": "linux",
       "repository": {
-          "url":"https://git.repo.vub.ac.be/oweval/docker.git",
+          "url":"https://github.com/koltempleister/docker.git",
           "stackfile": "stacks/dev/docker-compose.yml"
       },
       "env": [
