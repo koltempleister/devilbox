@@ -9,7 +9,7 @@
       "platform": "linux",
       "repository": {
           "url":"https://github.com/koltempleister/devilbox.git",
-          "stackfile": "stacks/devilbox-test/devilbox-test.yml"
+          "stackfile": "oweval/stacks/devilbox-test/devilbox-test.yml"
       },
       "env": [
 				{
@@ -190,7 +190,7 @@
       "platform": "linux",
       "repository": {
           "url":"https://github.com/koltempleister/devilbox.git",
-          "stackfile": "stacks/dev/docker-compose.yml"
+          "stackfile": "oweval/stacks/dev/docker-compose.yml"
       },
       "env": [
 				{

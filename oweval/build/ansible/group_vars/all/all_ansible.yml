@@ -28,7 +28,7 @@ portainer_templates:
       categories: development
       description: teststack based on devilbox images
       repository_url: https://github.com/koltempleister/devilbox.git
-      repository_stackfile: stacks/devilbox-test/devilbox-test.yml
+      repository_stackfile: oweval/stacks/devilbox-test/devilbox-test.yml
       settings_override:
         ermoetietszijn:
       settings_extra:
@@ -39,7 +39,7 @@ portainer_templates:
       categories: development
       description: teststack based on devilbox images
       repository_url: https://github.com/koltempleister/devilbox.git
-      repository_stackfile: stacks/dev/docker-compose.yml
+      repository_stackfile: oweval/stacks/dev/docker-compose.yml
       settings_override:
         host_port_mysql:
           value: 3307
