@@ -380,6 +380,16 @@
 						"name": "FILEBEAT_PORT_ELK_LOGSTASH",
 						"default": "5044",
 						"preset": "true"
+			},{
+
+						"name": "MAILHOG_SERVER",
+						"default": "latest",
+						"preset": "true"
+			},{
+
+						"name": "HOST_PORT_MAILHOG",
+						"default": "8025",
+						"preset": "true"
 			}
 		]
   }

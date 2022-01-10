@@ -41,6 +41,10 @@ portainer_templates:
       repository_url: https://github.com/koltempleister/docker.git
       repository_stackfile: stacks/dev/docker-compose.yml
       settings_override:
+        host_port_mysql:
+          value: 3307
+          label: "mysql port"
+          type: "input"
         host_path_httpd_default_datadir:
           value: "/home/jevdheyd/code"
           type: "input"
@@ -82,7 +86,12 @@ portainer_templates:
           value: "5044"
           label: "filebeat port for logstash"
           type: "preset"
-
+        mailhog_server:
+          value: "latest"
+          type: "preset"
+        host_port_mailhog:
+          value: "8025"
+          type: "preset"
 
 env_files:
   - src: roles/template/files/env.j2
