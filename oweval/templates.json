@@ -315,10 +315,10 @@
 					 
 				},{
 					
-		    		"name": "HOST_PORT_MYSQL",
-		    		"default": "3306",
-			    	"label": "mysql port"
-					 
+						"name": "HOST_PORT_MYSQL",
+						"default": "3307",
+						"label": "mysql port"
+					
 				},{
 					
 		    		"name": "MOUNT_OPTIONS",
