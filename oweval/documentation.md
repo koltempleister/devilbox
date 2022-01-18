@@ -5,7 +5,7 @@ in php.ini van de juiste php versie in devalibox/cfg (php.ini moet worden aangem
 xdebug.mode               = debug
 xdebug.start_with_request = yes
 xdebug.remote_handler   = dbgp
-xdebug.remote_port      = 9000
+xdebug.client_port      = 9000
 xdebug.idekey           = PHPSTORM
 xdebug.remote_log       = /var/log/php/xdebug.log
 xdebug.client_host			= 172.16.238.1
