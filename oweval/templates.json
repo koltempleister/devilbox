@@ -57,13 +57,13 @@
 				},{
 					
 		    		"name": "HTTPD_TEMPLATE_DIR",
-		    		"default": ".devilbox",
+		    		"default": "devilbox",
 			    	"preset": "true"
 					 
 				},{
 					
 		    		"name": "LOCAL_LISTEN_ADDR",
-		    		"default": "127.0.0.1:",
+		    		"default": "",
 			    	"preset": "true"
 					 
 				},{
@@ -238,13 +238,13 @@
 				},{
 					
 		    		"name": "HTTPD_TEMPLATE_DIR",
-		    		"default": ".devilbox",
+		    		"default": "devilbox",
 			    	"preset": "true"
 					 
 				},{
 					
 		    		"name": "LOCAL_LISTEN_ADDR",
-		    		"default": "127.0.0.1:",
+		    		"default": "",
 			    	"preset": "true"
 					 
 				},{
