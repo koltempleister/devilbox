@@ -175,6 +175,12 @@
 			    	"preset": "true"
 					 
 				},{
+					
+		    		"name": "HOST_PORT_REDIS",
+		    		"default": "6379",
+			    	"label": "redis port"
+					 
+				},{
 
 						"name": "ERMOETIETSZIJN",
 						"default": "",
@@ -354,6 +360,12 @@
 		    		"name": "REDIS_SERVER",
 		    		"default": "latest",
 			    	"preset": "true"
+					 
+				},{
+					
+		    		"name": "HOST_PORT_REDIS",
+		    		"default": "6379",
+			    	"label": "redis port"
 					 
 				},{
 
