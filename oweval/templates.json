@@ -63,7 +63,7 @@
 				},{
 					
 		    		"name": "LOCAL_LISTEN_ADDR",
-		    		"default": "127.0.0.1",
+		    		"default": "",
 			    	"preset": "true"
 					 
 				},{
@@ -111,7 +111,7 @@
 				},{
 					
 		    		"name": "PHP_MODULES_DISABLE",
-		    		"default": "",
+		    		"default": "False",
 			    	"preset": "true"
 					 
 				},{
@@ -137,12 +137,6 @@
 		    		"name": "HOST_PORT_MYSQL",
 		    		"default": "3306",
 			    	"label": "mysql port"
-					 
-				},{
-					
-		    		"name": "MOUNT_OPTIONS",
-		    		"default": "",
-			    	"preset": "true"
 					 
 				},{
 					
@@ -250,7 +244,7 @@
 				},{
 					
 		    		"name": "LOCAL_LISTEN_ADDR",
-		    		"default": "127.0.0.1",
+		    		"default": "",
 			    	"preset": "true"
 					 
 				},{
@@ -298,7 +292,7 @@
 				},{
 					
 		    		"name": "PHP_MODULES_DISABLE",
-		    		"default": "",
+		    		"default": "False",
 			    	"preset": "true"
 					 
 				},{
@@ -325,12 +319,6 @@
 						"default": "3307",
 						"label": "mysql port"
 					
-				},{
-					
-		    		"name": "MOUNT_OPTIONS",
-		    		"default": "",
-			    	"preset": "true"
-					 
 				},{
 					
 		    		"name": "MEMCD_SERVER",
