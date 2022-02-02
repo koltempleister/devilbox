@@ -63,7 +63,7 @@
 				},{
 					
 		    		"name": "LOCAL_LISTEN_ADDR",
-		    		"default": "",
+		    		"default": "127.0.0.1",
 			    	"preset": "true"
 					 
 				},{
@@ -250,7 +250,7 @@
 				},{
 					
 		    		"name": "LOCAL_LISTEN_ADDR",
-		    		"default": "",
+		    		"default": "127.0.0.1",
 			    	"preset": "true"
 					 
 				},{
