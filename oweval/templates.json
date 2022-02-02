@@ -57,7 +57,7 @@
 				},{
 					
 		    		"name": "HTTPD_TEMPLATE_DIR",
-		    		"default": ".",
+		    		"default": ".devilbox",
 			    	"preset": "true"
 					 
 				},{
@@ -238,7 +238,7 @@
 				},{
 					
 		    		"name": "HTTPD_TEMPLATE_DIR",
-		    		"default": ".",
+		    		"default": ".devilbox",
 			    	"preset": "true"
 					 
 				},{
