@@ -96,5 +96,5 @@ portainer_templates:
 env_files:
   - src: roles/template/files/env.j2
     dest: ../../stacks/devilbox-test/.env
-  # - src: roles/template/files/env.j2
-  #   dest: ../../stacks/dev/.env
+  - src: roles/template/files/env.j2
+    dest: ../../stacks/dev/.env
