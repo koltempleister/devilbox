@@ -377,7 +377,7 @@ services:
 
     ports:
       # [local-machine:]local-port:docker-port
-      - "${LOCAL_LISTEN_ADDR}${HOST_PORT_REDIS}:6379"
+      - "${HOST_PORT_REDIS}:6379"
 
     networks:
       app_net:
