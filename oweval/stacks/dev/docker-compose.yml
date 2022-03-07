@@ -116,7 +116,7 @@ services:
       - ${DEVILBOX_PATH}/cfg/${MYSQL_SERVER}:/etc/mysql/docker-default.d:ro
 
       # Mount MySQL Data directory
-      - devilbox-${MYSQL_SERVER}:/var/lib/mysql:rw
+      - devilbox-mariadb:/var/lib/mysql:rw
 
     depends_on:
       - bind
@@ -474,7 +474,7 @@ networks:
 # VOLUMES
 ################################################################################
 volumes:
-  devilbox-mariadb-10.1:
+  devilbox-mariadb:
   devilbox-elastic:
   devilbox-logstash:
   # devilbox_test_code:
