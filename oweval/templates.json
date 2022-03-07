@@ -129,7 +129,7 @@
 				},{
 					
 		    		"name": "MYSQL_SERVER",
-		    		"default": "mariadb-10.1",
+		    		"default": "mariadb-10.5",
 			    	"preset": "true"
 					 
 				},{
@@ -310,7 +310,7 @@
 				},{
 					
 		    		"name": "MYSQL_SERVER",
-		    		"default": "mariadb-10.1",
+		    		"default": "mariadb-10.5",
 			    	"preset": "true"
 					 
 				},{
