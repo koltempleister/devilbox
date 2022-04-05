@@ -111,7 +111,7 @@
 				},{
 					
 		    		"name": "PHP_MODULES_DISABLE",
-		    		"default": "False",
+		    		"default": "psr",
 			    	"preset": "true"
 					 
 				},{
@@ -292,7 +292,7 @@
 				},{
 					
 		    		"name": "PHP_MODULES_DISABLE",
-		    		"default": "False",
+		    		"default": "psr",
 			    	"preset": "true"
 					 
 				},{
