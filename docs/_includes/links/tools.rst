@@ -21,6 +21,12 @@
      awesome-ci <img src="https://raw.githubusercontent.com/cytopia/icons/master/11x11/ext-link.png" />
    </a>
 
+.. |ext_lnk_tool_homebrew| raw:: html
+
+   <a target="_blank" href="https://brew.sh/">
+     Linux brew <img src="https://raw.githubusercontent.com/cytopia/icons/master/11x11/ext-link.png" />
+   </a>
+
 .. |ext_lnk_tool_codecept| raw:: html
 
    <a target="_blank" href="https://codeception.com/">
@@ -203,7 +209,7 @@
 
 .. |ext_lnk_tool_photon| raw:: html
 
-   <a target="_blank" href="https://photoncms.com/resources/installing">
+   <a target="_blank" href="https://docs.photoncms.com/">
      Photon CMS cli <img src="https://raw.githubusercontent.com/cytopia/icons/master/11x11/ext-link.png" />
    </a>
 
