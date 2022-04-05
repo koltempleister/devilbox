@@ -99,7 +99,7 @@
 				},{
 					
 		    		"name": "PHP_SERVER",
-		    		"default": "7.3",
+		    		"default": "7.4",
 			    	"preset": "true"
 					 
 				},{
@@ -280,7 +280,7 @@
 				},{
 					
 		    		"name": "PHP_SERVER",
-		    		"default": "7.3",
+		    		"default": "7.4",
 			    	"preset": "true"
 					 
 				},{

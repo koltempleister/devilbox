@@ -115,8 +115,8 @@ services:
       # to overwrite the MySQL server configuration
       - ${DEVILBOX_PATH}/cfg/${MYSQL_SERVER}:/etc/mysql/docker-default.d:ro
 
-      # Mount MySQL Data directory
       - devilbox-mariadb:/var/lib/mysql:rw
+      # Mount MySQL Data directory
 
     depends_on:
       - bind
