@@ -191,10 +191,10 @@ services:
       - MYSQL_BACKUP_PASS=${MYSQL_ROOT_PASSWORD}
       - MYSQL_BACKUP_HOST=mysql
 
-    # dns:
-    #   - 172.16.238.100
     dns:
-      - php
+      - 172.16.238.100
+    # dns:
+    #   - php
 
     # MacOS and Windows have this by default, this hack also allows it for Linux
     extra_hosts:
