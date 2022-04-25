@@ -6,6 +6,40 @@ Make sure to have a look at [UPDATING.md](https://github.com/cytopia/devilbox/bl
 ## Unreleased
 
 
+## Release v2.2.0 (2022-04-14)
+
+This release adds PHP-FPM community images via `docker-compose.override.yml`, which easily allows you
+to build upon existing PHP images and customize them for your usecase/workflow.
+
+#### Added
+- Added PHP-FPM Community images: https://github.com/devilbox/docker-php-fpm-community/
+
+
+## Release v2.1.1 (2022-04-07)
+
+#### Changed
+- Used tagged PHP images (auto-updating)instead early release branch one.
+
+
+## Release v2.1.0 (2022-04-05)
+
+This is now a 100% `arm64` compatible release.
+
+#### Fixed
+- Fixed imklog: cannot open kernel log (/proc/kmsg): Operation not permitted.
+- Fixed missing `arm64` support: [#855](https://github.com/cytopia/devilbox/issues/855)
+
+#### Added
+- Added PHP images with `arm64` support for PHP: https://github.com/devilbox/docker-php-fpm/releases/tag/0.138
+- Added `vips` to PHP 8.0
+- Added `vips` to PHP 8.1
+- Added `swoole` to PHP 8.1
+
+#### Removed
+- Removed homebrew due to arm64 issues
+- Removed Ansible due to arm64 issues
+
+
 ## Release v2.0.0 (2022-03-28)
 
 The goal of this release is to reduce the overall size of Docker images and bring in latest versions.
