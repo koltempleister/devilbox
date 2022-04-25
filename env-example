@@ -87,8 +87,6 @@ LOCAL_LISTEN_ADDR=
 ### It is also required for the internal DNS server to be setup.
 ###
 ### Note: In addition to period or dot character ('.'), only ALPHA ([a-zA-Z]+) characters are supported.
-###       Mac users should not use the .local TLD, as this will not resolve properly due Apple's
-###         use of Multicast DNS.##
 ###
 ### Example:
 ###   TLD_SUFFIX=loc
@@ -484,7 +482,7 @@ HOST_PATH_SSH_DIR=~/.ssh
 
 
 
-################################################################################
+#############################H###################################################
 ###
 ### 3. PHP Docker Settings
 ###
