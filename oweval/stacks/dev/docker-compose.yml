@@ -131,8 +131,6 @@ services:
     # image: ../images/php-fpm-test-73
 
     hostname: php
-    extra_hosts:
-      - host.docker.internal:host-gateway
     ##
     ## All .env variables
     ##
