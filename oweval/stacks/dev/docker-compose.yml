@@ -94,7 +94,7 @@ services:
   mysql:
     image: devilbox/mysql:${MYSQL_SERVER}-0.7
     hostname: mysql
-
+    restart: always
     environment:
       - MYSQL_ROOT_PASSWORD
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
@@ -263,7 +263,7 @@ services:
   httpd:
     image: devilbox/${HTTPD_SERVER}:0.36
     hostname: httpd
-
+    restart: always
     environment:
 
       ##
@@ -368,7 +368,7 @@ services:
   redis:
     image: redis:${REDIS_SERVER}
     hostname: redis
-
+    restart: always
     # Apply custom arguments to redis startup
     command: redis-server ${REDIS_ARGS:- }
     environment:
